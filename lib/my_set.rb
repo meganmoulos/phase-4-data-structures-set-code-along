@@ -25,4 +25,22 @@ class MySet
     def size
         @hash.size
     end
+
+    def self.[](*args)
+        self.new(args)
+    end
+
+    def clear 
+        @hash.clear
+        self
+    end
+
+    def each(&block)
+        @hash.keys.each(&block)
+        self
+    end
+
+    def inspect
+        "#<#{self.class.name}: {#{@hash.keys.join(", ")}}>"
+    end
 end
